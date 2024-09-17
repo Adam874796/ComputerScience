@@ -1,0 +1,149 @@
+Adam Saad
+
+U1L1
+
+A) output will be Hello Leslie
+B) My prediction was correct because the output matched my prediction
+C) the print statement outputted the word "hello" along with the variable 'name' which contained the string "Leslie"
+D) # this is a code comment
+name = "Adam"
+print("Hello", name)
+
+The role of variables is to be a changable value in code along variation and change within your code, you can input information into them and output it too
+
+U1L2
+
+A) the number 24
+B) It was correct
+C) the number 24 was in the print statement so it printed 24
+D) amount = 24
+print("2 dozen is:", amount)
+
+E) amount = 7 * 4
+print("7 * 4 is:", amount)
+
+F) amount = 8
+amount += 1
+print("The amount is: ", amount)
+
+It is adding 1 to the existing value of amount bringing it from 8 to 9
+
+G) amount = 8
+amount = amount * 2
+print(amount)
+
+just like before it is performing an operating on the existing value of 'amount' and storing that result in the same variable it originated from, thus overwriting the value of amount to 16
+
+U1L3
+
+A) There are  28  people in this room.
+Your total money spent is:  23.98
+
+It prints out the statements and adds together the numbers in the second print statement before outputting it
+
+B) No output because everything is within a comment
+C) There are 28 people in this room.
+Pi is equal to 3.141600
+Joe's final score is 215
+
+It prints out all print statements normally but tacks on 2 extra 0s for the type double statement
+
+D) Total money spent is: 23.98
+The area of a circle of radius 4 is 50.265600
+
+It prints out the formatted statements after doing the calculations
+
+
+U1L4
+
+A) It will require input for a whole number and then divide it by 6 before printing that out
+B) Please input a whole number: 3
+When 3  is divided by 6 the result is: 0.5
+
+C) It stopped after reaching the last line of code and my mathematical result was the same as their output
+D) num = input("Please input a whole number: ") 
+num2 = input("Please input a divisor (Use any whole number except zero): ")
+num = int(num) 
+num2 = int(num2) 
+num3 = num / num2
+print("When", num, " is divided by 6", "the result is:", num3)
+
+That prompt was needed because dividing by 0 is an error
+
+
+U1L5
+
+A) It will ask for input on a length and then square that number to give the area of a square
+B) Please input a length: 5
+The area of a square of side length 5.0 is: 25.0
+
+C) It stopped after reaching the last line of code and my mathematical result was the same as their output
+D) import math
+length = input("Please input a radius: ")
+length = float(length)
+SqArea = 4 * math.pow((length), 2)
+SemiArea = 0.5 * math.pi * math.pow(length, 2)
+area = SemiArea + SqArea
+area = SemiArea + SqArea
+print("The area of the square and semicircle with a radius of", length, "is: %.2f" % area)
+
+R has to be multiplied by 2 because a square uses side lengths which are equivalent to the diameter not the radius
+
+
+U1L6
+
+A) Age = input("what is your age: ")
+Age = int(Age)
+year = input("What year were you born: ")
+year = int(year)
+year = year * 2 + 5
+year = year * 50 + Age
+year = (year - 250) / 100
+
+print("the whole number is your year of birth and the decimals are your age: ", year)|
+
+U1L7
+
+A) 1. It will say Yes! 3 is a factor of 6
+   2. Now deciding if 5 is a factor of 6 ... and nothing else
+
+B/C) Yes it matched my expectations and calculations
+D) import math
+
+x = input("Please input a whole number: ")
+x = int(x)
+y = input("Please input another nonzero whole number ")
+y = int(y)
+print("Now deciding if", y, "is a factor of", x, "...")
+if y != 0:
+    rem = x % y
+    if rem == 0:
+        print("Yes!", y, "is a factor of", x)
+    else:
+        print("No!", y, "isn't a factor of", x)
+else:
+    print("I request a nonzero whole number")
+
+E) I did this in D already
+
+F) import math
+
+x = input("Please input a whole number from 1-20: ")
+x = int(x)
+if x>0 and x<21:
+    y = input("Please input another whole number from 1-20: ")
+    y = int(y)
+    if y>0 and 21>y:
+        print("Now deciding if", y, "is a factor of", x, "...")
+        if y != 0:
+            rem = x % y
+            if rem == 0:
+                print("Yes!", y, "is a factor of", x)
+            else:
+                print("No!", y, "isn't a factor of", x)
+        else:
+            print("I request a nonzero whole number")
+    else:
+        print("I requested a value between 1-20")
+else:
+    print("I requested a value between 1-20")
