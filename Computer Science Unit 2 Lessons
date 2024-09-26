@@ -39,3 +39,8 @@ print(", ".join(A))
 
 
 U2L4: all informational (no assignment included)
+
+
+U2L5: 
+A) output will be {2, 3, 5, 37, 7, 11, 13, 17, 19, 23, 29, 31}
+B) 
