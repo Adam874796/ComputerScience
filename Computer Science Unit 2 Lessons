@@ -43,4 +43,26 @@ U2L4: all informational (no assignment included)
 
 U2L5: 
 A) output will be {2, 3, 5, 37, 7, 11, 13, 17, 19, 23, 29, 31}
-B) 
+B) s1 = {2, 3, 5, 7}
+s2 = {11, 13, 17, 19, 23}
+s3 = {29, 31, 37}
+
+S = s1.isdisjoint(s2) and s2.isdisjoint(s3) and s3.isdisjoint(s1)
+print(S)
+
+This code returned true so that means there is no overlap
+
+C) The ouput will beEscape
+Camry
+Pacifica
+Challenger
+
+D) little =   {"hairy":"rat", "clever":"bat", "slow":"cod", "bare":"ant", "quick":"cat"}
+midsized = {"hairy":"ewe", "clever":"fox", "slow":"pig", "bare":"eel", "quick":"doe"}
+large =    {"hairy":"gnu", "clever":"ape", "slow":"cow", "bare":"elephant", "quick":"nag"}
+
+animals = {"little": little, "midsized": midsized, "large": large} 
+for key in animals:
+    hash1 = animals[key]
+    for key2 in hash1:
+        print(hash1[key2])
