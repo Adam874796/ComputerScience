@@ -66,3 +66,15 @@ for key in animals:
     hash1 = animals[key]
     for key2 in hash1:
         print(hash1[key2])
+
+U2L6: # linear search function
+def linsearch(arr):
+    for n in range(len(arr)):
+        if arr[n] == 20 or 25 or 60 or 74 or 97:
+            print(n)
+            
+# your main code here
+myArr = [20, 20, 24, 27, 39, 40, 43, 46, 50, 
+         60, 60, 62, 71, 74, 76, 86, 86, 87, 97, 97]
+
+linsearch(myArr)
