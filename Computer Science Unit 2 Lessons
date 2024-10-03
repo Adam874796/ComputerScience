@@ -119,4 +119,24 @@ print("The combined magnitude is: ", M)
 print("while the combined vector is:", V)
 print("They are not equal")
 
-B) 
+B) import math
+
+A = [3, 2, 0, -1]
+B = [5, 7, 8, 4]
+
+M = math.sqrt(math.pow(A[0] + A[1] + A[2] + A[3], 2))
+
+M = M * M
+
+V = (A[0] + A[1] + A[2] + A[3])
+
+V = V * V
+TempResult = V / M
+
+Result = math.acos(TempResult)
+Result = Result * math.pi
+
+print("The angle between vectors is: ", Result)
+print("They are the same")
+
+U2L9: 
