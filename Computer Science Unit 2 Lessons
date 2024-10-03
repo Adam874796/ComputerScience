@@ -89,4 +89,14 @@ myArr = [20, 20, 24, 27, 39, 40, 43, 46, 50,
 
 print("The index values of the given array that contain the values 20, 25, 60, 74, and 97 are: ", linsearch(myArr))
 
-U2L7: 
+U2L7: a = [7, 1, 3, 5, 2, 4, 6]
+b = []
+
+for n in range(len(a)):
+    x = ((n-2) % 7)
+    b.append(a[x])
+    
+print("before:", a)
+print("after:", b)
+
+U2L8:
