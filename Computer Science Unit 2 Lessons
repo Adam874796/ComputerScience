@@ -100,3 +100,23 @@ print("before:", a)
 print("after:", b)
 
 U2L8:
+A) import math
+
+A = [3, 2, 0, -1]
+B = [5, 7, 8, 4]
+
+M1 = math.sqrt(math.pow((A[0]), 2) + math.pow((A[1]), 2) + math.pow((A[2]), 2) + math.pow((A[3]), 2))
+M2 = math.sqrt(math.pow((B[0]), 2) + math.pow((B[1]), 2) + math.pow((B[2]), 2) + math.pow((B[3]), 2))
+
+M = M1 + M2
+
+V1 = (A[0] + A[1] + A[2] + A[3])
+V2 = (B[0] + B[1] + B[2] + B[3])
+
+V = V1 + V2
+
+print("The combined magnitude is: ", M)
+print("while the combined vector is:", V)
+print("They are not equal")
+
+B) 
