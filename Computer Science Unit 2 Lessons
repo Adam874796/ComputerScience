@@ -179,3 +179,47 @@ if (horizantals(Magic3) and verticals(Magic3) and diagonals(Magic3)):
     print("The magic number is:", MagicNum)
 else:
     print("This array is not a Magic Square")
+
+B) a1 = [2, 7, 6]
+a2 = [9, 5, 1]
+a3 = [4, 3, 8]
+Magic3 = [a1, a2, a3]
+
+add = input("How much would you like to add to the array?: ")
+add = int(add)
+
+def horizantals(arr):
+    x0 = (arr[0][0] + add) + (arr[0][1] + add) + (arr[0][2] + add)
+    x1 = (arr[1][0] + add) + (arr[1][1] + add) + (arr[1][2] + add)
+    x2 = (arr[2][0] + add) + (arr[2][1] + add) + (arr[2][2] + add)
+    if x0 == x1 == x2:
+        return True
+    else: 
+        return False
+    
+def verticals(arr):    
+    y0 = (arr[0][0] + add) + (arr[1][0] + add) + (arr[2][0] + add)
+    y1 = (arr[0][1] + add) + (arr[1][1] + add) + (arr[2][1] + add)
+    y2 = (arr[0][2] + add) + (arr[1][2] + add) + (arr[2][2] + add)
+    if y0 == y1 == y2:
+        return True
+    else: 
+        return False
+        
+def diagonals(arr):    
+    z0 = (arr[0][0] + add) + (arr[1][1] + add) + (arr[2][2] + add)
+    z1 = (arr[0][2] + add) + (arr[1][1] + add) + (arr[2][0] + add)
+    if z0 == z1:
+        x = z1
+        return True
+    else: 
+        return False
+
+MagicNum = (Magic3[0][0] + add) + (Magic3[1][0] + add) + (Magic3[2][0] + add)
+if (horizantals(Magic3) and verticals(Magic3) and diagonals(Magic3)):
+    print("The array is a Magic Square")
+    print("The magic number is:", MagicNum)
+else:
+    print("This array is not a Magic Square")
+
+C)
