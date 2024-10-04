@@ -222,4 +222,89 @@ if (horizantals(Magic3) and verticals(Magic3) and diagonals(Magic3)):
 else:
     print("This array is not a Magic Square")
 
-C)
+C) a1 = [2, 7, 6]
+a2 = [9, 5, 1]
+a3 = [4, 3, 8]
+Magic3 = [a1, a2, a3]
+
+minus = input("How much would you like to minus to the array?: ")
+minus = int(minus)
+
+def horizantals(arr):
+    x0 = (arr[0][0] - minus) + (arr[0][1] - minus) + (arr[0][2] - minus)
+    x1 = (arr[1][0] - minus) + (arr[1][1] - minus) + (arr[1][2] - minus)
+    x2 = (arr[2][0] - minus) + (arr[2][1] - minus) + (arr[2][2] - minus)
+    if x0 == x1 == x2:
+        return True
+    else: 
+        return False
+    
+def verticals(arr):    
+    y0 = (arr[0][0] - minus) + (arr[1][0] - minus) + (arr[2][0] - minus)
+    y1 = (arr[0][1] - minus) + (arr[1][1] - minus) + (arr[2][1] - minus)
+    y2 = (arr[0][2] - minus) + (arr[1][2] - minus) + (arr[2][2] - minus)
+    if y0 == y1 == y2:
+        return True
+    else: 
+        return False
+        
+def diagonals(arr):    
+    z0 = (arr[0][0] - minus) + (arr[1][1] - minus) + (arr[2][2] - minus)
+    z1 = (arr[0][2] - minus) + (arr[1][1] - minus) + (arr[2][0] - minus)
+    if z0 == z1:
+        x = z1
+        return True
+    else: 
+        return False
+
+MagicNum = (Magic3[0][0] - minus) + (Magic3[1][0] - minus) + (Magic3[2][0] - minus)
+if (horizantals(Magic3) and verticals(Magic3) and diagonals(Magic3)):
+    print("The array is a Magic Square")
+    print("The magic number is:", MagicNum)
+else:
+    print("This array is not a Magic Square")
+
+D) a1 = [2, 7, 6]
+a2 = [9, 5, 1]
+a3 = [4, 3, 8]
+Magic3 = [a1, a2, a3]
+
+times = input("How much would you like to times to the array?: ")
+times = int(times)
+
+def horizantals(arr):
+    x0 = (arr[0][0] * times) + (arr[0][1] * times) + (arr[0][2] * times)
+    x1 = (arr[1][0] * times) + (arr[1][1] * times) + (arr[1][2] * times)
+    x2 = (arr[2][0] * times) + (arr[2][1] * times) + (arr[2][2] * times)
+    if x0 == x1 == x2:
+        return True
+    else: 
+        return False
+    
+def verticals(arr):    
+    y0 = (arr[0][0] * times) + (arr[1][0] * times) + (arr[2][0] * times)
+    y1 = (arr[0][1] * times) + (arr[1][1] * times) + (arr[2][1] * times)
+    y2 = (arr[0][2] * times) + (arr[1][2] * times) + (arr[2][2] * times)
+    if y0 == y1 == y2:
+        return True
+    else: 
+        return False
+        
+def diagonals(arr):    
+    z0 = (arr[0][0] * times) + (arr[1][1] * times) + (arr[2][2] * times)
+    z1 = (arr[0][2] * times) + (arr[1][1] * times) + (arr[2][0] * times)
+    if z0 == z1:
+        x = z1
+        return True
+    else: 
+        return False
+
+MagicNum = (Magic3[0][0] * times) + (Magic3[1][0] * times) + (Magic3[2][0] * times)
+if (horizantals(Magic3) and verticals(Magic3) and diagonals(Magic3)):
+    print("The array is a Magic Square")
+    print("The magic number is:", MagicNum)
+else:
+    print("This array is not a Magic Square")
+
+
+U2L10:
