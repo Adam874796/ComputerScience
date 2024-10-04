@@ -307,4 +307,51 @@ else:
     print("This array is not a Magic Square")
 
 
-U2L10:
+U2L10: 
+
+A) def addM(M1, M2):
+    MT1 = []
+    MT2 = []
+    MT3 = []
+    MT = [MT1, MT2, MT3]
+    MT1.append((M1[0][0]) + (M2[0][0]))
+    MT1.append((M1[0][1]) + (M2[0][1]))
+    MT1.append((M1[0][2]) + (M2[0][2]))
+    MT2.append((M1[1][0]) + (M2[1][0]))
+    MT2.append((M1[1][1]) + (M2[1][1]))
+    MT2.append((M1[1][2]) + (M2[1][2]))
+    MT3.append((M1[2][0]) + (M2[2][0]))
+    MT3.append((M1[2][1]) + (M2[2][1]))
+    MT3.append((M1[2][2]) + (M2[2][2]))
+    return MT
+    
+
+def isMagic(M):
+    x0 = M[0][0] + M[0][1] + M[0][2]
+    x1 = M[1][0] + M[1][1] + M[1][2]
+    x2 = M[2][0] + M[2][1] + M[2][2]
+    y0 = M[0][0] + M[1][0] + M[2][0]
+    y1 = M[0][1] + M[1][1] + M[2][1]
+    y2 = M[0][2] + M[1][2] + M[2][2]
+    z0 = M[0][0] + M[1][1] + M[2][2]
+    z1 = M[0][2] + M[1][1] + M[2][0]
+    if x0 == x1 == x2 == y0 == y1 == y2 == z0 == z1:
+        print("The array is a Magic Square")
+        print("The magic number is:", x1)
+    else:
+        print("This array is not a Magic Square")
+
+m1 = [2, 7, 6]
+m2 = [9, 5, 1]
+m3 = [4, 3, 8]
+M1 = [m1, m2, m3] # magic square
+a1 = [2, 7, 6]
+a2 = [9, 5, 1]
+a3 = [4, 3, 8]
+M2 = [a1, a2, a3]
+
+MT = addM(M1, M2)
+isMagic(MT)
+
+B) for the rest I will just be putting the output because all im doing is changing the values of a1 a2 and a3 to whatever it is asking me for, the rest of the code is the same
+
