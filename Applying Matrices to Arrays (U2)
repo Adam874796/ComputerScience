@@ -1,1 +1,40 @@
-L1: 
+L1: def addM(M1, M2):
+    w = len(M1)
+    AT = [[0] * w] * w
+    print(AT)
+    for i in range(len(M1)):
+        for j in range(len(M1[0])):
+            AT[i][j] = M1[i][j] + M2[i][j]
+    print(AT)
+    return AT
+            
+
+def isMagic(M):
+    # checks rows, columns and both diagonals to see if M is magic
+    # this is a boolean function
+    return False # obviously, add code and change this line
+
+def make5x5(M, shift):
+    M1 = []
+    M2 = []
+    M3 = []
+    M4 = []
+    for n in range(len(M)):
+        y = ((n-shift) % 5)
+        M1.append(M[y])
+    for n in range(len(M)):
+        y = ((n-(shift * 2)) % 5)
+        M2.append(M[y])
+    for n in range(len(M)):
+        y = ((n-(shift * 3)) % 5)
+        M3.append(M[y])
+    for n in range(len(M)):
+        y = ((n-(shift * 4)) % 5)
+        M4.append(M[y])
+    M = [M, M1, M2, M3, M4]
+    return M
+    
+a1 = [5, 1, 4, 2, 3]    # the first row of matrix A
+b1 = [15, 20, 0, 10, 5] # the first row of matrix B
+
+addM((make5x5(a1, 2)), (make5x5(a1, 3)))
