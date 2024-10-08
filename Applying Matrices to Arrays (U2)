@@ -1,20 +1,33 @@
 L1: 
 def addM(M1, M2):
     w = len(M1)
-    AT = [[0] * w] * w
+    AT = [[0] * w for _ in range(w)]  
     for i in range(len(M1)):
         for j in range(len(M1)):
-            print(i, j, end = " ")
             AT[i][j] = M1[i][j] + M2[i][j]
-            print(AT)
-    print(AT)
     return AT
-            
+
 
 def isMagic(M):
-    # checks rows, columns and both diagonals to see if M is magic
-    # this is a boolean function
-    return False # obviously, add code and change this line
+    size = len(M) 
+    magic_sum = sum(M[0]) 
+
+    for row in M:
+        if sum(row) != magic_sum:
+            return False
+
+        for col in range(size):
+            if sum(M[row][col] for row in range(size)) != magic_sum:
+                return False
+
+    if sum(M[i][i] for i in range(size)) != magic_sum:
+        return False
+
+    if sum(M[i][size - 1 - i] for i in range(size)) != magic_sum:
+        return False
+
+    return True
+
 
 def make5x5(M, shift):
     M1 = []
@@ -22,21 +35,25 @@ def make5x5(M, shift):
     M3 = []
     M4 = []
     for n in range(len(M)):
-        y = ((n-shift) % 5)
+        y = ((n - shift) % 5)
         M1.append(M[y])
     for n in range(len(M)):
-        y = ((n-(shift * 2)) % 5)
+        y = ((n - (shift * 2)) % 5)
         M2.append(M[y])
     for n in range(len(M)):
-        y = ((n-(shift * 3)) % 5)
+        y = ((n - (shift * 3)) % 5)
         M3.append(M[y])
     for n in range(len(M)):
-        y = ((n-(shift * 4)) % 5)
+        y = ((n - (shift * 4)) % 5)
         M4.append(M[y])
     M = [M, M1, M2, M3, M4]
     return M
-    
-a1 = [5, 1, 4, 2, 3]    # the first row of matrix A
-b1 = [15, 20, 0, 10, 5] # the first row of matrix B
 
-addM((make5x5(a1, 2)), (make5x5(b1, 3)))
+
+a1 = [5, 1, 4, 2, 3]  # the first row of matrix A
+b1 = [15, 20, 0, 10, 5]  # the first row of matrix B
+
+if isMagic(addM(make5x5(a1, 2), make5x5(b1, 3))):
+    print("the arrays create a magic square")
+else:
+    print("The arrays do not creat a magic square")
