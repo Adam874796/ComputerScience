@@ -57,3 +57,13 @@ if isMagic(addM(make5x5(a1, 2), make5x5(b1, 3))):
     print("the arrays create a magic square")
 else:
     print("The arrays do not creat a magic square")
+
+L2: 
+Q = [[0.5, 1.4, 1], [1, 2, 0.5]]
+P = [2.20, 3.10, 2.60]
+
+person_1_total = Q[0][0] * P[0] + Q[0][1] * P[1] + Q[0][2] * P[2]
+person_2_total = Q[1][0] * P[0] + Q[1][1] * P[1] + Q[1][2] * P[2]
+
+print(f"Person 1 spent ${person_1_total:.2f}")
+print(f"Person 2 spent ${person_2_total:.2f}")
