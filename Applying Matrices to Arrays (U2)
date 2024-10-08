@@ -1,10 +1,12 @@
-L1: def addM(M1, M2):
+L1: 
+def addM(M1, M2):
     w = len(M1)
     AT = [[0] * w] * w
-    print(AT)
     for i in range(len(M1)):
-        for j in range(len(M1[0])):
+        for j in range(len(M1)):
+            print(i, j, end = " ")
             AT[i][j] = M1[i][j] + M2[i][j]
+            print(AT)
     print(AT)
     return AT
             
@@ -37,4 +39,4 @@ def make5x5(M, shift):
 a1 = [5, 1, 4, 2, 3]    # the first row of matrix A
 b1 = [15, 20, 0, 10, 5] # the first row of matrix B
 
-addM((make5x5(a1, 2)), (make5x5(a1, 3)))
+addM((make5x5(a1, 2)), (make5x5(b1, 3)))
