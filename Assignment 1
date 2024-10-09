@@ -20,6 +20,10 @@ Value = input("Please input a positive prime number integer between 5 and 19: ")
 Value = int(Value)
 
 if Value>=5 and Value<=19 and is_prime(Value):
-    pass
+    A = []
+    for i in range(0, Value):
+        num = random.randint(1, (Value * Value))
+        A.append(num)
+    print(A)
 else:
     print("This number did not meet the criteria...")
