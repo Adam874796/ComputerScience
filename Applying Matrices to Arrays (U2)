@@ -69,3 +69,25 @@ print(f"Person 1 spent $%.2f" % person_1_total)
 print(f"Person 2 spent $%.2f" % person_2_total)
 
 L3: 
+def mmult(P, Q):
+    i = 0
+    C = [0, 0]
+    while i < 14:
+        C[0] = (P[0] * Q[0][0]) + (P[1] * Q[1][0])
+        C[1] = (P[0] * Q[0][1]) + (P[1] * Q[1][1])
+        i = i + 1
+    return C
+
+A = [.6, .4] # prob. Marla is late today
+B = [[.7, .3],
+     [.9, .1]] # conditional prob. model for Marla's punctuality tomorrow
+
+C = mmult(A, B)
+print("On day 1, the probability that Marla will be early the next day is: ", C[0])
+print("On day 1, the probability that Marla will be late the next day is: ", C[1])
+
+days = 15
+for i in range(2, days):
+    C = mmult(C, B)
+    print("On day %d, the prob. Marla is early the next day is: %.4f" % (i, C[0]) )
+    print("On day %d, the prob. Marla is late the next day is: %.4f" % (i, C[1]) )
