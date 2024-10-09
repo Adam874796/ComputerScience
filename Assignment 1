@@ -1,1 +1,25 @@
+#import the math and random module
+import random
+import math
 
+def is_prime(n):
+    if n < 2:
+        return False
+    """
+    mathematically check if a number is prime using a number 1 up from the square root, use int to drop the decimal for the 'floored' value
+    """
+    for i in range(2, int(math.sqrt(n)) + 1):
+        """
+        if number is divisable by value from 2 to i, it is not prime, vice versa
+        """
+        if n % i == 0:
+            return False
+    return True
+    
+Value = input("Please input a positive prime number integer between 5 and 19: ")
+Value = int(Value)
+
+if Value>=5 and Value<=19 and is_prime(Value):
+    pass
+else:
+    print("This number did not meet the criteria...")
