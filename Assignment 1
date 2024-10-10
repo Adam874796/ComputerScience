@@ -18,12 +18,15 @@ def is_prime(n):
     
 Value = input("Please input a positive prime number integer between 5 and 19: ")
 Value = int(Value)
-A = []
+A = [0]
 
 if Value>=5 and Value<=19 and is_prime(Value):
-    for i in range(0, Value):
-        num = random.randint(1, (Value * Value))
-        A.append(num)
-    print(A)
+    while (len(A))<=Value:
+        B = [0]
+        C = [0]
+        num = random.randint(1, Value)
+        B.append(num)
+        C = A.union(B)
+    print(C)
 else:
     print("This number did not meet the criteria...")
