@@ -1,32 +1,33 @@
-#import the math and random module
 import random
 import math
 
 def is_prime(n):
     if n < 2:
         return False
-    """
-    mathematically check if a number is prime using a number 1 up from the square root, use int to drop the decimal for the 'floored' value
-    """
+    # Check if n is prime using square root method
     for i in range(2, int(math.sqrt(n)) + 1):
-        """
-        if number is divisable by value from 2 to i, it is not prime, vice versa
-        """
         if n % i == 0:
             return False
     return True
-    
-Value = input("Please input a positive prime number integer between 5 and 19: ")
-Value = int(Value)
-A = [0]
 
-if Value>=5 and Value<=19 and is_prime(Value):
-    while (len(A))<=Value:
-        B = [0]
-        C = [0]
-        num = random.randint(1, Value)
-        B.append(num)
-        C = A.union(B)
-    print(C)
-else:
-    print("This number did not meet the criteria...")
+def generate_arrays(Value):
+    if Value >= 5 and Value <= 19 and is_prime(Value):
+        # Create array A with values from 1 to Value in random order
+        A = list(range(1, Value + 1))
+        random.shuffle(A)
+
+        # Create array B with multiples of Value from Value to Value * Value
+        B = [Value * i for i in range(1, Value + 1)]
+        random.shuffle(B)
+
+        return A, B
+    else:
+        return "This number did not meet the criteria..."
+
+Value = int(input("Please input a positive prime number integer between 5 and 19: "))
+result = generate_arrays(Value)
+
+
+A, B = result
+print("Array A:", A)
+print("Array B:", B)
