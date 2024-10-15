@@ -11,23 +11,76 @@ def is_prime(n):
     return True
 
 def generate_arrays(Value):
-    if Value >= 5 and Value <= 19 and is_prime(Value):
-        # Create array A with values from 1 to Value in random order
-        A = list(range(1, Value + 1))
-        random.shuffle(A)
+    # Create array A with values from 1 to Value in random order
+    A = list(range(1, Value + 1))
+    random.shuffle(A)
 
-        # Create array B with multiples of Value from Value to Value * Value
-        B = [Value * i for i in range(1, Value + 1)]
-        random.shuffle(B)
+    # Create array B with multiples of Value from Value to Value * Value
+    B = [Value * i for i in range(0, Value)]
+    random.shuffle(B)
 
-        return A, B
-    else:
-        return "This number did not meet the criteria..."
+    return A, B
+
+def MakeSquare(M, shift):
+    M1 = []
+    M2 = []
+    M3 = []
+    M4 = []
+    for n in range(len(M)):
+        y = ((n - shift) % 5)
+        M1.append(M[y])
+    for n in range(len(M)):
+        y = ((n - (shift * 2)) % 5)
+        M2.append(M[y])
+    for n in range(len(M)):
+        y = ((n - (shift * 3)) % 5)
+        M3.append(M[y])
+    for n in range(len(M)):
+        y = ((n - (shift * 4)) % 5)
+        M4.append(M[y])
+    M = [M, M1, M2, M3, M4]
+    return M
+    
+def addM(M1, M2):
+    w = len(M1)
+    AT = [[0] * w for _ in range(w)]  
+    for i in range(len(M1)):
+        for j in range(len(M1)):
+            AT[i][j] = M1[i][j] + M2[i][j]
+    print("The Magic Square is:", AT)
+    return AT
+
+def isMagic(M):
+    size = len(M) 
+    magic_sum = sum(M[0]) 
+
+    for row in M:
+        if sum(row) != magic_sum:
+            return False
+
+        for col in range(size):
+            if sum(M[row][col] for row in range(size)) != magic_sum:
+                return False
+
+    if sum(M[i][i] for i in range(size)) != magic_sum:
+        return False
+
+    if sum(M[i][size - 1 - i] for i in range(size)) != magic_sum:
+        return False
+    print("The magic sum is: ", magic_sum)
+    return True
+
 
 Value = int(input("Please input a positive prime number integer between 5 and 19: "))
-result = generate_arrays(Value)
-
-
-A, B = result
-print("Array A:", A)
-print("Array B:", B)
+if Value >= 5 and Value <= 19 and is_prime(Value):
+    result = generate_arrays(Value)
+    A, B = result
+    print("Array A:", A)
+    print("Array B:", B)
+    
+    if isMagic(addM(MakeSquare(A, 2), MakeSquare(B, 3))):
+        print("The arrays create a magic square!!")
+    else:
+        ("The arrays do not creat a magic square")
+else:
+    print("This number did not meet the criteria...")
