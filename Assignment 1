@@ -67,7 +67,7 @@ def isMagic(M):
 
     if sum(M[i][size - 1 - i] for i in range(size)) != magic_sum:
         return False
-    print("The magic sum is: ", magic_sum)
+    print("The magic sum is:", magic_sum)
     return True
 
 
