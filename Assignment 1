@@ -1,9 +1,9 @@
 """
-Name: Adam Saad
-Course: ICS4U0-1
-Program: A code that makes a magic square array of n x n size with random digits
-Date: October 16th 2024
-
+Author : Adam Saad
+   Revison date : October 16th 2024
+   Program : ICS4U0-1
+   Description : A code that makes a magic square array of n x n size with random digits
+   
 Variable Dictionary:
 Value : int : The number the user inputs for the size of the matrix
     
@@ -12,7 +12,7 @@ Value : int : The number the user inputs for the size of the matrix
 import random  # Used to shuffle arrays randomly
 import math  # Used to calculate square roots for prime-checking
 
-# Function to check if a number n is prime
+# PreConditions and Purpose: Function to check if inputted number 'n' is prime
 def is_prime(n):
     """
     Variable Dictionary:
@@ -26,9 +26,9 @@ def is_prime(n):
         if n % i == 0:  # If n is divisible by i, it's not prime where i is every number upto the square root of n
             return False 
     return True  # If no divisors are found, n is prime
-    #Returns: True if n is prime, False otherwise.
+    # PostConditions: Returns: True if n is prime, False otherwise.
 
-# Function to generate two arrays, A and B, based on the input value
+# PreConditions and Purpose: Function to generate two arrays, A and B, based on the input value
 def generate_arrays(Value):
     """
     Variable Dictionary:
@@ -44,9 +44,9 @@ def generate_arrays(Value):
     random.shuffle(B)  # Shuffle B randomly as well
 
     return A, B  # Return both arrays
-    #Returns: Two lists, A (1 to Value in random order) and B (multiples of Value in random order).
+    # PostConditions: Returns: Two lists, A (1 to Value in random order) and B (multiples of Value in random order).
 
-# Function to create a shifted square matrix (size x size) based on an input list M
+# PreConditions and Purpose: Function to create a shifted square matrix (size x size) based on an input list M, an inputted shift amount for each line of the code, and a size to make the resulting square matrix
 def MakeSquare(M, shift, size):
     """
     Variable Dictionary:
@@ -64,9 +64,9 @@ def MakeSquare(M, shift, size):
             shifted_row.append(M[y])  # Append the shifted element to the row
         result.append(shifted_row)  # Add the shifted row to the final matrix
     return result  # Return the full square matrix
-    #Returns: A list of lists representing a shifted square matrix.
+    # PostConditions: Returns: A list of lists representing a shifted square matrix.
 
-# Function to add two square matrices element-wise
+# PreConditions and Purpose: Function to add two square matrices element-wise the square matrices are known as M1 and M2
 def addM(M1, M2):
     """
     Variable Dictionary:
@@ -83,9 +83,9 @@ def addM(M1, M2):
             AT[i][j] = M1[i][j] + M2[i][j]  # Add corresponding elements
     print("The Magic Square is:", AT)  # Print the resulting matrix
     return AT  # Return the resulting matrix
-    #Returns: A new matrix that is the element-wise sum of M1 and M2.
+    # PostConditions: Returns: A new matrix that is the sum of M1 and M2 called AT
 
-# Function to check if a matrix is a magic square
+# PreConditions and Purpose: Function to check if a matrix 'M' is a magic square
 def isMagic(M):
     """
     Variable Dictionary:
@@ -117,7 +117,7 @@ def isMagic(M):
     
     print("The magic sum is:", magic_sum)  # If everything passes, print the magic sum
     return True  # The matrix is a magic square
-    #Returns: True if the matrix is a magic square, False otherwise.
+    # PostConditions: Returns True if the matrix is a magic square, if not then False.
 
 # Main program logic
 Value = int(input("Please input a positive prime number integer between 5 and 19: "))
