@@ -12,6 +12,7 @@ Value : int : The number the user inputs for the size of the matrix
 import random  # Used to shuffle arrays randomly
 import math  # Used to calculate square roots for prime-checking
 
+
 # PreConditions and Purpose: Function to check if inputted number 'n' is prime
 def is_prime(n):
     """
@@ -120,17 +121,21 @@ def isMagic(M):
     # PostConditions: Returns True if the matrix is a magic square, if not then False.
 
 # Main program logic
-Value = int(input("Please input a positive prime number integer between 5 and 19: "))
-if Value >= 5 and Value <= 19 and is_prime(Value):  # Check if the input meets the criteria
-    result = generate_arrays(Value)  # Generate two arrays, A and B
-    A, B = result
-    print("Array A:", A)  # Print the randomly shuffled array A
-    print("Array B:", B)  # Print the randomly shuffled array B
-    
-    # Check if adding the shifted square matrices of A and B forms a magic square
-    if isMagic(addM(Make_Square(A, 2, Value), Make_Square(B, 3, Value))):
-        print("The arrays create a magic square!!")
+try: 
+    Value = (input("Please input a positive prime number integer between 5 and 19: "))
+    Value = int(Value)
+    if Value >= 5 and Value <= 19 and is_prime(Value):  # Check if the input meets the criteria
+        result = generate_arrays(Value)  # Generate two arrays, A and B
+        A, B = result
+        print("Array A:", A)  # Print the randomly shuffled array A
+        print("Array B:", B)  # Print the randomly shuffled array B
+        
+        # Check if adding the shifted square matrices of A and B forms a magic square
+        if isMagic(addM(Make_Square(A, 2, Value), Make_Square(B, 3, Value))):
+            print("The arrays create a magic square!!")
+        else:
+            print("The arrays do not create a magic square")
     else:
-        print("The arrays do not create a magic square")
-else:
-    print("This number did not meet the criteria...")  # Invalid input
+        print("This number did not meet the criteria...")  # Invalid input
+except ValueError:
+    print("Please enter an integer...")
