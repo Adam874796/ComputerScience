@@ -47,7 +47,7 @@ def generate_arrays(Value):
     # PostConditions: Returns: Two lists, A (1 to Value in random order) and B (multiples of Value in random order).
 
 # PreConditions and Purpose: Function to create a shifted square matrix (size x size) based on an input list M, an inputted shift amount for each line of the code, and a size to make the resulting square matrix
-def MakeSquare(M, shift, size):
+def Make_Square(M, shift, size):
     """
     Variable Dictionary:
     M : list : A list of numbers used to fill the square matrix
@@ -128,7 +128,7 @@ if Value >= 5 and Value <= 19 and is_prime(Value):  # Check if the input meets t
     print("Array B:", B)  # Print the randomly shuffled array B
     
     # Check if adding the shifted square matrices of A and B forms a magic square
-    if isMagic(addM(MakeSquare(A, 2, Value), MakeSquare(B, 3, Value))):
+    if isMagic(addM(Make_Square(A, 2, Value), Make_Square(B, 3, Value))):
         print("The arrays create a magic square!!")
     else:
         print("The arrays do not create a magic square")
