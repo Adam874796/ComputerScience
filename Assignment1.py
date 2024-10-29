@@ -82,7 +82,9 @@ def addM(M1, M2):
     for i in range(len(M1)):
         for j in range(len(M1)):
             AT[i][j] = M1[i][j] + M2[i][j]  # Add corresponding elements
-    print("The Magic Square is:", AT)  # Print the resulting matrix
+    print("The Magic Square is:")
+    for row in range(len(AT)):
+        print(AT[row])  # Print the resulting matrix
     return AT  # Return the resulting matrix
     # PostConditions: Returns: A new matrix that is the sum of M1 and M2 called AT
 
