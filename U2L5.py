@@ -1,6 +1,5 @@
 class Fraction:
     # See slideshow for a full discussion of this code.
-    #
     def __init__(self, num, den):
         self.__n = num
         self.__d = den
@@ -22,7 +21,6 @@ class Fraction:
         
 
 class Fraction2(Fraction):
-    # See slideshow for a full discussion of this code.
     def __init__(self, num, den):
         super().__init__(num, den)
     
@@ -45,7 +43,23 @@ class Fraction2(Fraction):
                     num = num // i
         self.setNum(num)
         self.setDen(den)
-    
+        return self
+        
+    def add(self, num2, den2):
+        num1 = self.getNum()
+        den1 = self.getDen()
+        if den2 != den1:
+            DenT = (den1*den2)
+            num1 = (num1*den2)
+            num2 = (num2*den1)
+            numT = (num1 + num2)
+        else:
+            DenT = den1
+            numT = (num1 + num2)
+        self.setNum(numT)
+        self.setDen(DenT)
+        return self
+        
     def multiply(self, num2, den2):
         num1 = self.getNum()
         den1 = self.getDen()
@@ -54,8 +68,6 @@ class Fraction2(Fraction):
         self.setDen(den1 * den2)
         return self        
         
-        
-    #def multiply(self):
 
         
 num = input("choose a numerator: ")
@@ -69,7 +81,20 @@ num2 = input("choose a second numerator: ")
 num2 = int(num2)
 den2 = input("choose a second denominator: ")
 den2 = int(den2)
-FMul = f.multiply(num2, den2)
-print(FMul)
-        
+
+choice = input("would you like to 'add' or 'multiply'? ")
+choice = str(choice)
+
+if choice == "multiply":
+    FMul = f.multiply(num2, den2)
+    print(FMul)
+    FReduce = f.reduce()
+    print("when reduced...", FReduce)
+elif choice == "add":
+    FAdd = f.add(num2, den2)
+    print(FAdd)
+    FReduce = f.reduce()
+    print("when reduced...", FReduce)
+else:
+    print("this is not an avalible option")
 # driver code
