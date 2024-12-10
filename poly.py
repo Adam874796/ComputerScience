@@ -61,12 +61,13 @@ class Polygon:
         # You need to use point's __str__ function to help you.
         if self.__vertices == 2:
             return "A line is not a Polygon"
+        for Str of Polygon...
         nodes = []
         V = self.__head
-        while True:
+        nodes.append(str(V))
+        V = V.next
+        while  V != self.__head:
             nodes.append(str(V))
             V = V.next
-            if V == self.__head:
-                break
         return ("->".join(nodes))
        
