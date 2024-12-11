@@ -74,7 +74,7 @@ class Polygon:
         # PostConditions: Returns the circular linked list of points in the format "(x, y) -> (x, y) -> ...".
 
         if self.__vertices < 3:
-            return "A line or point is not a Polygon"
+            return "The line or point is not a Polygon"
 
         # Variable dictionary:
         # nodes (list): List of point strings.
