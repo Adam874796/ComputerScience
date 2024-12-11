@@ -1,15 +1,19 @@
 import math
+
 class point:
-    def __init__(self, x: float=None, y: float=None):
-        # Default is None due to creation of a Head Node for linked lists
-        self.__x = x
-        self.__y = y
-        self.next = None
+    def __init__(self, x: float = None, y: float = None):
+        # PreConditions and Purpose: Initialize a Point object with x and y coordinates.
+        # x, y can be floats or None for the creation of a head node in a circular linked list.
+        # PostConditions: Creates a Point object with default x, y as None and next as None.
+
+        self.__x = x  # x-coordinate of the point (type: float or None)
+        self.__y = y  # y-coordinate of the point (type: float or None)
+        self.next = None  # Pointer to the next point in the circular linked list (type: Point or None)
 
     def valid(self):
-        # A validator is needed mostly for when we go to the end of the file, but
-        # also to assure us that the point is properly formatted with either
-        # ints or floats.
+        # PreConditions and Purpose: Validate the x and y coordinates to ensure they are numbers.
+        # PostConditions: Converts x and y to int or float, or exits if invalid.
+
         try:
             self.__x = int(self.__x)
             self.__y = int(self.__y)
@@ -19,55 +23,69 @@ class point:
                 self.__y = float(self.__y)
             except ValueError:
                 print("x and y coordinates must be numbers")
-                return exit()
-           
+                exit()
+
     def get_coordinates(self):
+        # PreConditions and Purpose: Retrieve the x and y coordinates of the Point.
+        # PostConditions: Returns a tuple (x, y) as floats.
+
         return float(self.__x), float(self.__y)
-   
+
     def __str__(self):
-        # point (x, y) expressed this way as string
-        # as in: (4, 5)
+        # PreConditions and Purpose: Represent the Point object as a string in the format "(x, y)".
+        # PostConditions: Returns a string representation of the Point.
+
         return f"({self.__x}, {self.__y})"
-   
+
+
 class Polygon:
     def __init__(self):
-        # Set basic properties to default values
-        self.__sides = 0
-        self.__vertices = 0
-        self.__head = None # a null point with a null Next field
+        # PreConditions and Purpose: Initialize a Polygon object.
+        # PostConditions: Creates a Polygon with default values and an empty circular linked list of points.
+
+        self.__sides = 0  # Number of sides in the polygon (type: int, default: 0)
+        self.__vertices = 0  # Number of vertices in the polygon (type: int, default: 0)
+        self.__head = None  # Head node of the circular linked list (type: Point or None)
 
     def add_point(self, x: float, y: float):
-        # initialize a point obVect V
-        # if it is the first point, create the obVect with variable V make head.next point to V
-        # if it is any other point, V.next points to it, and V traverses to that point
-        # count the vertices as you go
+        # PreConditions and Purpose: Add a new point (x, y) to the polygon as part of a circular linked list.
+        # PostConditions: Adds a new Point to the circular linked list and updates vertex count.
+
+        # Variable dictionary:
+        # h (Point): The new point to be added.
+        # V (Point): Traversal pointer to find the last point in the circular linked list.
+
         h = point(x, y)
         if self.__head is None:
+            # First point: Initialize head and make it circular.
             self.__head = h
             h.next = h
         else:
-            V = self.__head.next
+            # Add the new point to the circular linked list.
+            V = self.__head
             while V.next != self.__head:
                 V = V.next
             V.next = h
             h.next = self.__head
-        self.__vertices = self.__vertices + 1
-       
-    def draw_polygon(self):
-        pass
-       
+        self.__vertices += 1
+
     def __str__(self):
-        # Use a traversal to generate the entire set of points separated by "->" as string
-        # You need to use point's __str__ function to help you.
-        if self.__vertices == 2:
-            return "A line is not a Polygon"
-        for Str of Polygon...
+        # PreConditions and Purpose: Generate a string representation of the polygon as a series of points.
+        # PostConditions: Returns the circular linked list of points in the format "(x, y) -> (x, y) -> ...".
+
+        if self.__vertices < 3:
+            return "A line or point is not a Polygon"
+
+        # Variable dictionary:
+        # nodes (list): List of point strings.
+        # V (Point): Traversal pointer to traverse the circular linked list.
+
         nodes = []
         V = self.__head
-        nodes.append(str(V))
+        nodes.append(str(V))  # Add the head point.
         V = V.next
-        while  V != self.__head:
+        while V != self.__head:
             nodes.append(str(V))
             V = V.next
-        return ("->".join(nodes))
-       
+        return " -> ".join(nodes)
+
