@@ -2,7 +2,7 @@
 Author : Adam Saad
    Revison date : December 9th 2024
    Program : ICS4U0-1
-   Description : A code that takes input from a file of polygon vertix coordinates and returns information back
+   Description : A code that takes input from a file of polygon vertex coordinates and returns information back
    
  General Variable Dictionary:
  - fh (file object): File handle for reading the input file.
