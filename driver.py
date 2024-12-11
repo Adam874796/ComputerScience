@@ -1,4 +1,19 @@
-# driver for the polygon class
+"""
+Author : Adam Saad
+   Revison date : December 9th 2024
+   Program : ICS4U0-1
+   Description : A code that takes input from a file of polygon vertix coordinates and returns information back
+   
+ General Variable Dictionary:
+ - fh (file object): File handle for reading the input file.
+ - polydata (str): Raw data line from the file.
+ - cord (list): List of parsed points from the file.
+ - Poly (Polygon): The Polygon object created and populated.
+
+    
+"""
+
+# import code from poly
 from poly import *
 # Driver for the polygon class.
 
@@ -35,9 +50,3 @@ for z in range(len(cord)):
     Poly.add_point(x, y)  # Add each point to the Polygon.
 
 print(Poly)  # Output the polygon as a string.
-
-# General Variable Dictionary:
-# - fh (file object): File handle for reading the input file.
-# - polydata (str): Raw data line from the file.
-# - cord (list): List of parsed points from the file.
-# - Poly (Polygon): The Polygon object created and populated.
