@@ -199,6 +199,11 @@ class IVT:
         # If no roots are found using any method, return a message
         if z1 is None and z2 is None and z3 is None:
             return "No roots between given values"
+        elif deg < 2:
+            if z1 is not None:
+                return z1
+            else:
+                return "No roots between given x values"
         # If Newton's method converges to the same root for both bounds, return that root
         elif round(z2, 9) == round(z3, 9):
             if x1-0.1 < z2 < x2+0.1 and x1-0.1 < z3 < x2+0.1:
@@ -273,10 +278,13 @@ class IVT:
                 i += 1
     
             roots.sort()  # Sort the roots for consistency
-            for c in range(len(roots)):
-                if x1 > roots[c] > x2:
-                    roots.pop(0)
-            if roots == []:
-                return "no root given between x values"
-            return roots
+            zeroes = []
+            for c in roots:
+                if x2 < c or c < x1:
+                    pass
+                else:
+                    zeroes.append(c)
+            if zeroes == []:
+                return "No roots in given x range"
+            return zeroes
 
