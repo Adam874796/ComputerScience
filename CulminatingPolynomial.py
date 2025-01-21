@@ -37,7 +37,9 @@ class Polynomial:
             # Handle the sign for coefficients.
             if i == 0 and c < 0:
                 c = -c
-                self.__eq += "-"
+                self.__eq += "-" # accounting for a negative value at the beginning
+            
+            # Choosing correct sign (+/-)
             elif 0 < i < self.__len and c > 0 and self.__eq != "":
                 self.__eq += " + "
             elif 0 < i < self.__len and c < 0 and self.__eq != "":
@@ -47,24 +49,25 @@ class Polynomial:
             # Skip terms with zero coefficient.
             if c == 0:
                 pass
+                
             elif c == 1:
                 # Handle coefficients of 1 for different positions.
                 if self.__len - 1 == i:
                     self.__eq += str(c)
                 elif self.__len - 2 == i:
-                    self.__eq += 'x'
+                    self.__eq += 'x' # add 'x'
                 else:
-                    piece = "x^" + str(self.__len - i - 1)
+                    piece = "x^" + str(self.__len - i - 1) # add x^ (degree)
                     self.__eq += piece
             else:
                 # Handle coefficients other than 1.
                 if self.__len - 1 == i:
                     self.__eq += str(c)
                 elif self.__len - 2 == i:
-                    piece = str(c) + 'x'
+                    piece = str(c) + 'x' # add value + 'x'
                     self.__eq += piece
                 else:
-                    piece = str(c) + "x^" + str(self.__len - i - 1)
+                    piece = str(c) + "x^" + str(self.__len - i - 1) # add value + x^ (degree)
                     self.__eq += piece
            
             i += 1  # Move to the next term.
