@@ -5,7 +5,7 @@ from Polynomial import *
 Author : Adam Saad
    Revison date : January 22nd 2025
    Program : ICS4U0-1
-   Description : A code that finds the roots of a given function
+   Description : A code that finds the roots of a given polynomial function
    
  General Variable Dictionary:
  - function (list[str]) the coefficients of the function
