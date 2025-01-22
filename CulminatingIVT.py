@@ -208,8 +208,33 @@ class IVT:
         # If no roots are found using any method, return message
         if z1 is None and z2 is None and z3 is None:
             return "No roots between given values"
-        # checking if linear
-        elif deg < 2: 
+        elif deg == -1: # check if invalid function
+            return "Not a function"
+        elif deg == 1: # check if linear
+            der = self.deravitive()
+            if der != 0:
+                r =(0 - self.__func[self.__len-  1])/der[0] # solve for root
+        # check if quadratic
+        elif deg == 2:
+            a = self.__func[self.__len - 3]
+            b = self.__func[self.__len - 2]
+            c = self.__func[self.__len - 1]
+            
+            QF = b**2 - (4 * a * c) # solve discriminant
+            if QF > 0: # if discriminant is greater than 0
+                r1 = ((-1 * b + (math.sqrt(Qf)))/(2 * a))
+                r2 = ((-1 * b - (math.sqrt(Qf)))/(2 * a))
+                return r1, r2 # solve roots with quadratic equation
+            
+            elif QF == 0: # if discriminant is equal to 0
+                r = (-1 * b)/(2 * a)
+                if r == 0:
+                    r = abs(r)
+                return r # solve for single root with quadratic equation
+            
+            else: # otherwise there are no roots
+                return "No root found..."
+            
             if z1 is not None: #if there is a root return it
                 return z1
             else:
@@ -299,4 +324,3 @@ class IVT:
             if zeroes == []:
                 return "No roots in given x range" # if there are no zeroes let the user know
             return zeroes # otherwise return zeroes
-
