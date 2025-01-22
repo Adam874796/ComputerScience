@@ -222,9 +222,9 @@ class IVT:
             
             QF = b**2 - (4 * a * c) # solve discriminant
             if QF > 0: # if discriminant is greater than 0
-                r1 = ((-1 * b + (math.sqrt(Qf)))/(2 * a))
-                r2 = ((-1 * b - (math.sqrt(Qf)))/(2 * a))
-                return r1, r2 # solve roots with quadratic equation
+                r1 = ((-1 * b + (math.sqrt(QF)))/(2 * a))
+                r2 = ((-1 * b - (math.sqrt(QF)))/(2 * a))
+                return f"The 2 roots are x = {r1} and x = {r2}"
             
             elif QF == 0: # if discriminant is equal to 0
                 r = (-1 * b)/(2 * a)
@@ -243,16 +243,6 @@ class IVT:
         elif round(z2, 9) == round(z3, 9): 
             if x1-0.1 < z2 < x2+0.1 and x1-0.1 < z3 < x2+0.1:
                 return z2
-        # For polynomials of degree less than 3, return z2 and z3 directly
-        elif deg == 2: # for quadratic
-            if x1-0.1 < z2 < x2+0.1 and x1-0.1 < z3 < x2+0.1: # check if the 2 roots are within the range
-                return z2, z3
-            elif x1-0.1 < z2 < x2+0.1: # check first root individually
-                return z2
-            elif x1-0.1 < z3 < x2+0.1: # check second root individually
-                return z3
-            else: # if both fail then no root is between the x-values
-                return "no root given between x values"
                 
         # For higher-degree polynomials, find and return all unique roots
         else:
@@ -323,4 +313,4 @@ class IVT:
                     zeroes.append(c) # otherwise append it to zeroes
             if zeroes == []:
                 return "No roots in given x range" # if there are no zeroes let the user know
-            return zeroes # otherwise return zeroes
+            return f"The zeroes are:\nx = " + "\nx = ".join(map(str, zeroes)) # otherwise return zeroes
